@@ -1,7 +1,9 @@
 package handlers
 
 import (
+	"crypto/rand"
 	"fmt"
+	"math/big"
 	"net/http"
 
 	"github.com/jmoiron/sqlx"
@@ -25,4 +27,17 @@ func Home(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		_, _ = fmt.Fprint(w, fmt.Sprintf("{\"status\":  200, \"message\": \"Hello visitor %d!\"}", visitorID))
 	}
+}
+
+func Raffle(w http.ResponseWriter, _ *http.Request) {
+	max := big.NewInt(74)
+	val, err := rand.Int(rand.Reader, max)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		_, _ = w.Write([]byte("Internal Error"))
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	_, _ = fmt.Fprintf(w, "Lucky number is: %s", val)
 }
