@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TestHome in github.com/dlsniper/dockerdemo/handlers" type="GoTestRunConfiguration" factoryName="Go Test" nameIsGenerated="true">
+    <module name="dockerdev" />
+    <working_directory value="$PROJECT_DIR$/handlers" />
+    <framework value="gotest" />
+    <kind value="PACKAGE" />
+    <package value="github.com/dlsniper/dockerdemo/handlers" />
+    <directory value="$PROJECT_DIR$/" />
+    <filePath value="$PROJECT_DIR$/" />
+    <pattern value="^TestHome$" />
+    <method v="2" />
+  </configuration>
+</component>
